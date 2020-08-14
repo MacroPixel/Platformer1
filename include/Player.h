@@ -11,6 +11,8 @@ namespace my
                 my::Sprite sprite;
 
         public:
+                static std::vector<my::Player*> objects;
+
                 Player( const char* t_sprite_filename );
 
                 void update( float deltaTime );

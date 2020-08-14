@@ -26,6 +26,7 @@ namespace my
 
         public:
                 Sprite( const char* t_filename );
+                ~Sprite();
 
                 sf::RectangleShape& getBody();
 

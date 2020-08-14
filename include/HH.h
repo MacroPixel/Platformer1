@@ -7,5 +7,6 @@
 #include <fstream>
 #include "CustomFunctions.h"
 #include <array>
+#include <vector>
 
 #endif // HH_H_INCLUDED

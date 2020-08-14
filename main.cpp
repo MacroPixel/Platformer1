@@ -2,12 +2,15 @@
 #include "Sprite.h"
 #include "Player.h"
 
+// instantiate static member variables
+std::vector<my::Player*> my::Player::objects;
+
 int main()
 {
         sf::RenderWindow window;
         window.create( sf::VideoMode( 1280, 720 ), "Epic Platformer" );
 
-        my::Player player( "texture/guy/testfile.spr" );
+        new my::Player( "texture/guy/testfile.spr" );
 
         sf::Clock clock;
         float deltaTime;
@@ -25,18 +28,8 @@ int main()
 
                 window.clear( sf::Color::White );
 
-                player.getSprite().update( deltaTime );
-
-                if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Num1 ) )
-                        player.getSprite().setAnimation( 0 );
-                if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Num2 ) )
-                        player.getSprite().setAnimation( 1 );
-                if ( sf::Keyboard::isKeyPressed( sf::Keyboard::F ) )
-                        player.getSprite().setFacing( -1 );
-                if ( sf::Keyboard::isKeyPressed( sf::Keyboard::G ) )
-                        player.getSprite().setFacing( 1 );
-
-                window.draw( player.getBody() );
+                my::updateAll( deltaTime );
+                my::drawAll( window );
 
                 window.display();
         }

@@ -33,7 +33,7 @@ my::Sprite::Sprite( const char* t_filename ) :
         body.setScale( t_scale );
 
         // facing doesn't need to read from file
-        facing = -1;
+        facing = 1;
 
         // animation stuff
         inf >> imageTotalY;
@@ -51,6 +51,12 @@ my::Sprite::Sprite( const char* t_filename ) :
 
         uvRect.width = t_size.x;
         uvRect.height = t_size.y;
+}
+
+my::Sprite::~Sprite()
+{
+        delete[] imageTotalX;
+        delete[] switchTime;
 }
 
 sf::RectangleShape& my::Sprite::getBody()
