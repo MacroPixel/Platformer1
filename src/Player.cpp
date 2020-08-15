@@ -7,32 +7,43 @@ my::Player::Player( const char* t_sprite_filename ) :
         my::Player::objects.push_back( this );
 }
 
+
+
+
 void my::Player::update( float deltaTime )
 {
-        float movement;
+        float movement; // SE
 
         // determine movement direction
         if ( sf::Keyboard::isKeyPressed( sf::Keyboard::D ) )
         {
-                movement = 300;
+                movement = 120;
                 sprite.setFacing( 1 );
         }
         if ( sf::Keyboard::isKeyPressed( sf::Keyboard::A ) )
         {
-                movement = -300;
+                movement = -120;
                 sprite.setFacing( -1 );
         }
 
+        // if movement is large enough, use walking animation; otherwise, use standing
         sprite.setAnimation( abs( movement ) > 0.5 ? 1 : 0 );
-        sprite.getBody().move( my::vecX( movement * deltaTime ) );
-        sprite.update( deltaTime );
+
+        sprite.getBody().move( my::vecX( movement * deltaTime ) ); // translate sprite.body
+        sprite.update( deltaTime ); // SE
 }
 
+
+
+// getter for sprite.body
 sf::RectangleShape& my::Player::getBody()
 {
         return sprite.getBody();
 }
 
+
+
+// SE
 my::Sprite& my::Player::getSprite()
 {
         return sprite;

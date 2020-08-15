@@ -3,66 +3,84 @@
 my::Sprite::Sprite( const char* t_filename ) :
         body( fileReadSize( t_filename ) ), imageCurrent( 0, 1 )
 {
-        // read stuff from .spr file
+        // initializes ifstream object, which can then allow file stuff to be inserted into variables
         std::ifstream inf{ t_filename };
 
-        // main texture stuff
+        // loads texture using what's in the file
         std::string textureFilename;
         inf >> textureFilename;
         texture.loadFromFile( textureFilename );
 
+        // loads rectangle size (single image unscaled) from the file
         sf::Vector2f t_size;
         inf >> t_size.x;
         inf >> t_size.y;
 
+        // loads rectangle position
         inf >> position.x;
         inf >> position.y;
 
+        // loads rectangle origin
         sf::Vector2f t_origin;
         inf >> t_origin.x;
         inf >> t_origin.y;
 
+        // loads rectangle scale
         sf::Vector2f t_scale;
         inf >> t_scale.x;
         inf >> t_scale.y;
 
+        // updates the body rect with aforementioned variables
+        // (body rect is what the player actually sees)
         body.setTexture( &texture );
         body.setSize( t_size );
         body.setPosition( position );
         body.setOrigin( t_origin );
         body.setScale( t_scale );
 
-        // facing doesn't need to read from file
-        facing = 1;
+        facing = 1; // facing doesn't need to read from file
+        inf >> imageTotalY; // reads total number of animations from file
 
-        // animation stuff
-        inf >> imageTotalY;
-
+        // initalizes two arrays that containing a value for each animation
+        // dynamic allocation used because non-compile-time constant
         imageTotalX = new unsigned int[ imageTotalY ];
         switchTime = new float[ imageTotalY ];
 
+        // this fills the arrays in based on the file
         for( int i = 0; i < static_cast<int>( imageTotalY ); ++i )
                 inf >> imageTotalX[ i ];
         for( int i = 0; i < static_cast<int>( imageTotalY ); ++i )
                 inf >> switchTime[ i ];
 
-        frameTotal = 8;
-        totalTime = 0;
+        totalTime = 0; // no time has elapsed yet
 
+        // this rectangle determines what part of the spritesheet we can see
+        // we only want the "window" to be the dimensions of one image
         uvRect.width = t_size.x;
         uvRect.height = t_size.y;
 }
 
+
+
+
 my::Sprite::~Sprite()
 {
+        // prevent memory leak
         delete[] imageTotalX;
         delete[] switchTime;
 }
 
+
+
+
+// getter for actual rectangle w/ texture
 sf::RectangleShape& my::Sprite::getBody()
 {
         return body;
 }
+
+
+
 
 void my::Sprite::update( float deltaTime )
 {
@@ -74,27 +92,28 @@ void my::Sprite::update( float deltaTime )
 
         if ( totalTime >= switchTimeC ) // this means more than the time between frames has elapsed, so we should switch
         {
+                // while loop used in case image must be incremented multiple times
                 while ( totalTime >= switchTimeC )
                         totalTime -= switchTimeC;
                 ++( imageCurrent.x );
 
+                // wrap image back around if exceeding frame count for current animation
                 if ( imageCurrent.x >= imageTotalX[ imageCurrent.y ] )
                         imageCurrent.x = 0;
         }
 
-        if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Z ) )
-        {
-                std::cout << uvRect.width << '\n';
-        }
-
         // update the rectangle position
-        uvRect.left = ( imageCurrent.x % frameTotal ) * uvRect.width;
+        uvRect.left = ( imageCurrent.x ) * uvRect.width;
         uvRect.top = imageCurrent.y * uvRect.height;
 
         body.setTextureRect( uvRect ); // this actually updates the texture
-        body.setScale( sf::Vector2f( abs( body.getScale().x ) * facing, body.getScale().y ) );
+        body.setScale( sf::Vector2f( abs( body.getScale().x ) * facing, body.getScale().y ) ); // this flips the texture around kf needed
 }
 
+
+
+
+// sets animation, resets frame if changed
 void my::Sprite::setAnimation( unsigned int row )
 {
         if ( imageCurrent.y != row )
@@ -104,12 +123,20 @@ void my::Sprite::setAnimation( unsigned int row )
         }
 }
 
+
+
+
+// SE
 void my::Sprite::setFacing( int facing )
 {
         this->facing = facing;
         update( 0 );
 }
 
+
+
+
+// this is to initialize body using direct initialization
 sf::Vector2f my::Sprite::fileReadSize( const char* t_filename )
 {
         std::ifstream inf{ t_filename };
