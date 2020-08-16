@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1597373858 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\sprite.cpp
+1597510380 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\sprite.cpp
 	"Sprite.h"
 
-1597499121 c:\users\crw\documents\c++\codeblocks\platformer1\include\sprite.h
+1597499710 c:\users\crw\documents\c++\codeblocks\platformer1\include\sprite.h
 	"HH.h"
 
 1525812018 c:\users\crw\documents\c++\sfml-2.5.0\include\sfml\graphics.hpp
@@ -414,10 +414,11 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1597374079 source:c:\users\crw\documents\c++\codeblocks\platformer1\main.cpp
+1597589029 source:c:\users\crw\documents\c++\codeblocks\platformer1\main.cpp
 	"HH.h"
 	"Sprite.h"
 	"Player.h"
+	"Block.h"
 
 1597373679 c:\users\crw\documents\c++\codeblocks\platformer1\include\hh.h
 	<iostream>
@@ -428,24 +429,34 @@
 	<array>
 	<vector>
 
-1597437772 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\customfunctions.cpp
+1597587484 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\customfunctions.cpp
 	"HH.h"
 	"Player.h"
 	"Block.h"
 
-1597437120 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\player.cpp
+1597584226 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\player.cpp
 	"Player.h"
 
-1597442574 c:\users\crw\documents\c++\codeblocks\platformer1\include\player.h
+1597517123 c:\users\crw\documents\c++\codeblocks\platformer1\include\player.h
 	"HH.h"
 	"Sprite.h"
+	"Collider.h"
 
-1597499121 c:\users\crw\documents\c++\codeblocks\platformer1\include\customfunctions.h
+1597588773 c:\users\crw\documents\c++\codeblocks\platformer1\include\customfunctions.h
 
-1597437511 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\block.cpp
+1597589252 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\block.cpp
 	"Block.h"
 
-1597437511 c:\users\crw\documents\c++\codeblocks\platformer1\include\block.h
+1597589029 c:\users\crw\documents\c++\codeblocks\platformer1\include\block.h
 	"HH.h"
 	"Sprite.h"
+	"Collider.h"
+
+1597589252 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\collider.cpp
+	"Collider.h"
+	<string>
+	<fstream>
+
+1597588735 c:\users\crw\documents\c++\codeblocks\platformer1\include\collider.h
+	"HH.h"
 

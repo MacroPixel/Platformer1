@@ -1,12 +1,11 @@
 #include "Player.h"
 
 my::Player::Player( const char* t_sprite_filename ) :
-        sprite{ t_sprite_filename }
+        sprite{ t_sprite_filename }, collider( t_sprite_filename )
 {
         // keep track of instance
         my::Player::objects.push_back( this );
 }
-
 
 
 
@@ -31,6 +30,8 @@ void my::Player::update( float deltaTime )
 
         sprite.getBody().move( my::vecX( movement * deltaTime ) ); // translate sprite.body
         sprite.update( deltaTime ); // SE
+
+        collider.update( sprite.getBody().getPosition() ); // update collision box
 }
 
 
@@ -47,4 +48,12 @@ sf::RectangleShape& my::Player::getBody()
 my::Sprite& my::Player::getSprite()
 {
         return sprite;
+}
+
+
+
+// SE
+my::Collider& my::Player::getCollider()
+{
+        return collider;
 }

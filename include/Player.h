@@ -3,12 +3,14 @@
 
 #include "HH.h"
 #include "Sprite.h"
+#include "Collider.h"
 
 namespace my
 {
         class Player
         {
                 my::Sprite sprite; // SE
+                my::Collider collider; // SE
 
         public:
                 // vector that holds pointer to every instance of object
@@ -20,6 +22,7 @@ namespace my
 
                 sf::RectangleShape& getBody(); // getter for sprite.body
                 my::Sprite& getSprite(); // SE
+                my::Collider& getCollider(); // SE
         };
 }
 

@@ -10,14 +10,10 @@ namespace my
                 // rectangle that texture is mapped to
                 sf::RectangleShape body;
 
-                // used for controlling the texture
                 // SE
                 sf::Texture texture;
-                sf::Vector2f size;
-                sf::Vector2f position;
 
                 // these are all used for the animation
-
                 unsigned int* imageTotalX; // holds array of total images in each animation
                 unsigned int imageTotalY; // holds total number of animations
                 sf::Vector2u imageCurrent; // holds current frame (x & y)

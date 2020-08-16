@@ -51,12 +51,14 @@
 			<Add directory="C:/Users/CRW/Documents/C++/SFML-2.5.0/lib" />
 		</Linker>
 		<Unit filename="include/Block.h" />
+		<Unit filename="include/Collider.h" />
 		<Unit filename="include/CustomFunctions.h" />
 		<Unit filename="include/HH.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Block.cpp" />
+		<Unit filename="src/Collider.cpp" />
 		<Unit filename="src/CustomFunctions.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Sprite.cpp" />

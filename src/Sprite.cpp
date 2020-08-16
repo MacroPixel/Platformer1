@@ -17,8 +17,9 @@ my::Sprite::Sprite( const char* t_filename ) :
         inf >> t_size.y;
 
         // loads rectangle position
-        inf >> position.x;
-        inf >> position.y;
+        sf::Vector2f t_position;
+        inf >> t_position.x;
+        inf >> t_position.y;
 
         // loads rectangle origin
         sf::Vector2f t_origin;
@@ -34,15 +35,14 @@ my::Sprite::Sprite( const char* t_filename ) :
         // (body rect is what the player actually sees)
         body.setTexture( &texture );
         body.setSize( t_size );
-        body.setPosition( position );
+        body.setPosition( t_position );
         body.setOrigin( t_origin );
         body.setScale( t_scale );
 
         facing = 1; // facing doesn't need to read from file
         inf >> imageTotalY; // reads total number of animations from file
 
-        // initalizes two arrays that containing a value for each animation
-        // dynamic allocation used because non-compile-time constant
+        // initalizes two arrays that containing a value for each animation; dynamic allocation used because non-compile-time constant
         imageTotalX = new unsigned int[ imageTotalY ];
         switchTime = new float[ imageTotalY ];
 
@@ -54,8 +54,7 @@ my::Sprite::Sprite( const char* t_filename ) :
 
         totalTime = 0; // no time has elapsed yet
 
-        // this rectangle determines what part of the spritesheet we can see
-        // we only want the "window" to be the dimensions of one image
+        // this rectangle determines what part of the spritesheet we can see; we only want the "window" to be the dimensions of one image
         uvRect.width = t_size.x;
         uvRect.height = t_size.y;
 }
