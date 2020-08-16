@@ -414,7 +414,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1597589029 source:c:\users\crw\documents\c++\codeblocks\platformer1\main.cpp
+1597591012 source:c:\users\crw\documents\c++\codeblocks\platformer1\main.cpp
 	"HH.h"
 	"Sprite.h"
 	"Player.h"
@@ -429,20 +429,21 @@
 	<array>
 	<vector>
 
-1597587484 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\customfunctions.cpp
+1597593106 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\customfunctions.cpp
 	"HH.h"
 	"Player.h"
 	"Block.h"
 
-1597584226 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\player.cpp
+1597603913 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\player.cpp
 	"Player.h"
+	"Block.h"
 
 1597517123 c:\users\crw\documents\c++\codeblocks\platformer1\include\player.h
 	"HH.h"
 	"Sprite.h"
 	"Collider.h"
 
-1597588773 c:\users\crw\documents\c++\codeblocks\platformer1\include\customfunctions.h
+1597590311 c:\users\crw\documents\c++\codeblocks\platformer1\include\customfunctions.h
 
 1597589252 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\block.cpp
 	"Block.h"
@@ -452,11 +453,11 @@
 	"Sprite.h"
 	"Collider.h"
 
-1597589252 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\collider.cpp
+1597603898 source:c:\users\crw\documents\c++\codeblocks\platformer1\src\collider.cpp
 	"Collider.h"
 	<string>
 	<fstream>
 
-1597588735 c:\users\crw\documents\c++\codeblocks\platformer1\include\collider.h
+1597603898 c:\users\crw\documents\c++\codeblocks\platformer1\include\collider.h
 	"HH.h"
 

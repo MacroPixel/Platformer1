@@ -18,11 +18,11 @@ int main()
         new my::Player( "texture/player_spritesheet.spr" );
 
         // this creates 10 blocks, each one next to each other; memory leak is avoided for the same reason as with the player object
-        for( int i = 0; i < 8; ++i )
+        for( int i = 0; i < 1; ++i )
         {
                 my::Block* tempBlock = new my::Block( "texture/block.spr" );
-                tempBlock->getBody().setPosition( sf::Vector2f( 32 + ( i * 64 ), 360 ) ); // update body rect pos/collider pos
-                tempBlock->getCollider().update( sf::Vector2f( 32 + ( i * 64 ), 360 ) ); // update body rect pos/collider pos
+                tempBlock->getBody().setPosition( sf::Vector2f( 400 + ( i * 64 ), 360 ) ); // update body rect pos/collider pos
+                tempBlock->getCollider().update( sf::Vector2f( 400 + ( i * 64 ), 360 ) ); // update body rect pos/collider pos
         }
 
         // clock is used with deltaTime, so they're both instantiated here

@@ -17,7 +17,8 @@ namespace my
         sf::Vector2f vecY( float y );
 
         // multiplies two vectors together
-        sf::Vector2f vecM( sf::Vector2f vecA, sf::Vector2f vecB );
+        sf::Vector2f vecP( const sf::Vector2f& vecA, const sf::Vector2f& vecB );
+        sf::Vector2f vecM( const sf::Vector2f& vecA, const sf::Vector2f& vecB );
 
         // draws a rectangle outline (for debugging)
         void drawRect( float x1, float y1, float x2, float y2, sf::RenderWindow& window );

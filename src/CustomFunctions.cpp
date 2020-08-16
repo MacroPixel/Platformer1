@@ -49,7 +49,14 @@ namespace my
 
 
 
-        sf::Vector2f vecM( sf::Vector2f vecA, sf::Vector2f vecB )
+        sf::Vector2f vecP( const sf::Vector2f& vecA, const sf::Vector2f& vecB )
+        {
+                return sf::Vector2f( vecA.x + vecB.x, vecA.y + vecB.y );
+        }
+
+
+
+        sf::Vector2f vecM( const sf::Vector2f& vecA, const sf::Vector2f& vecB )
         {
                 return sf::Vector2f( vecA.x * vecB.x, vecA.y * vecB.y );
         }
@@ -69,6 +76,6 @@ namespace my
 
         void drawCollider( my::Collider& col, sf::RenderWindow& window )
         {
-                drawRect( col.position.x - col.origin.x, col.position.y - col.origin.y, col.position.x + col.dimensions.x - col.origin.x, col.position.y + col.dimensions.y - col.origin.y, window );
+                drawRect( col.posX - col.originX, col.posY - col.originY, col.posX + col.sizeX - col.originX, col.posY + col.sizeY - col.originY, window );
         }
 }
